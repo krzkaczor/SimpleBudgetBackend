@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.math.BigDecimal;
 
 @Entity
 public class ExpenseCategory {
@@ -19,7 +20,7 @@ public class ExpenseCategory {
 
     private String name;
 
-    private Integer value;
+    private BigDecimal value;
 
     private String color;
 
@@ -35,7 +36,7 @@ public class ExpenseCategory {
         return name;
     }
 
-    public Integer getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
@@ -43,7 +44,7 @@ public class ExpenseCategory {
         return color;
     }
 
-    public ExpenseCategory(Budget budget, String name, Integer value, String color) {
+    public ExpenseCategory(Budget budget, String name, BigDecimal value, String color) {
 
         this.budget = budget;
         this.name = name;
