@@ -3,6 +3,8 @@ package SimpleBudget.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Set;
 
 
 @Entity
@@ -13,8 +15,12 @@ public class Budget {
 
     private String name;
 
-    public Integer getId() {
+    private Integer expenseLimit;
 
+    @OneToMany(mappedBy = "budget")
+    private Set<ExpenseCategory> expenseCategories;
+
+    public Integer getId() {
         return id;
     }
 
@@ -22,11 +28,19 @@ public class Budget {
         return name;
     }
 
-    public Budget() {
+    public Integer getExpenseLimit() {
+        return expenseLimit;
     }
 
-    public Budget(String name) {
+    public Set<ExpenseCategory> getExpenseCategories() {
+        return expenseCategories;
+    }
 
+    public Budget(String name, Integer expenseLimit) {
         this.name = name;
+        this.expenseLimit = expenseLimit;
+    }
+
+    public Budget() {
     }
 }
