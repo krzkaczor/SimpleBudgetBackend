@@ -14,8 +14,8 @@ public class BudgetController {
     private final BudgetRepository budgetRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    Budget get(@PathVariable int id) {
-        return this.budgetRepository.findOne(id);
+    Budget get(@PathVariable int budgetId) {
+        return this.budgetRepository.findOne(budgetId);
     }
 
     @Autowired
